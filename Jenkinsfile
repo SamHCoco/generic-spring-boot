@@ -5,7 +5,7 @@ pipeline {
         stage('build') {
             steps {
                 withMaven(globalMavenSettingsConfig: '--- Use system default settings or file path ---', 
-                jdk: '--- Use system default JDK ---', 
+                jdk: 'openjdk-java11', 
                 maven: 'maven3', 
                 mavenSettingsConfig: '--- Use system default settings or file path ---') {
                     sh 'mvn clean compile'
@@ -16,7 +16,7 @@ pipeline {
         stage('test') {
             steps {
                 withMaven(globalMavenSettingsConfig: '--- Use system default settings or file path ---', 
-                jdk: '--- Use system default JDK ---', 
+                jdk: 'openjdk-java11', 
                 maven: 'maven3', 
                 mavenSettingsConfig: '--- Use system default settings or file path ---') {
                     sh 'mvn clean install'
